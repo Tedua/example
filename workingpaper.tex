@@ -1,0 +1,395 @@
+\documentclass[12pt]{article}%
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[nohead]{geometry}
+\usepackage[singlespacing]{setspace}
+\usepackage[bottom]{footmisc}
+\usepackage{indentfirst}
+\usepackage{endnotes}
+\usepackage{graphicx}%
+\usepackage{rotating}
+\usepackage[colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{natbib}
+\usepackage{array}
+
+
+\setcounter{MaxMatrixCols}{30}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}
+
+%\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\usepackage{booktabs}
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+
+\makeatletter
+
+\makeatother
+\geometry{left=1in,right=1in,top=1.00in,bottom=1.0in}
+
+\bibliographystyle{apalike}
+
+\begin{document}
+
+\title{Reacting to Badges:Evidence from Yelp.com}
+\author{Wei Zhou\thanks{Department of Economics, University of Arizona, 
+weizhou1004@email.arizona.edu}.    }
+\maketitle
+
+\sloppy%avoids the breakage of words at the end of lines, by adjusting spaces between words inside the lines
+
+\onehalfspacing
+
+\begin{abstract}
+Online reviews are increasingly important for consumer decisions, yet we still know little about how reviews are generated in the first place.In an effort to gather more reviews, many websites award achievement badges to users. Do this kind of non-pecuniary incentive actually facilitate the generation of reviews? More importantly, what kind of reviews do such incentive induce? I study these questions using data from one of the largest product review websites-Yelp.com-where it provides elite badges to motivate users.By applying the panel data model, I find that as users receive the badges, they produce more reviews and more objective and readable reviews. Also, the badges make users more popular and influential in the online community, suggesting that badge holders may be motivated by a strong concern of social image.Such results have not been previously documented and have important implications for both product review and user-generated websites.
+
+
+\end{abstract}
+
+\strut
+
+\textbf{Keywords:} Online review; User-generated content; Online community; Achievement badge;Text mining.
+
+\strut
+
+
+
+\pagebreak%breaks to the next page
+\doublespacing %makes space betIen lines to be double, use singlespacing for space 1
+
+
+\section{Introduction}
+\label{intro} %for citation purposes later in the text
+
+The ways people receive information have changed a lot over the last decade. Previously, if you want to know what the president is doing, you need to buy a Wall Street Journal but nowadays all you need to do is to log in your Twitter account , follow Donald Trump and you can get everything you want.You can see the similar transitions from the traditional media to social media when you find the definition of fixed point theorem on Wikipedia instead of looking through the Encyclopedia and when you look for a good restaurant on Yelp rather than in Michelin guide.
+
+User-generated content is a key feature for these social media platforms. Compared with traditional media like books or magazines which hire professional writers and experts to write articles, contents on social media platforms are created by ordinary users or so called grass roots. Writers on the traditional media are just information producers, who are well paid and committed to generate high quality contents to entertain their readers. By contrast, users on the social media are not only information consumers but also information producers. They write product reviews as producers, meanwhile they read others' reviews as consumers.       
+
+This striking feature brings about two challenges. First, how to motivate the user to be a producer rather than a simply consumer? Since users are supposed to generate contents without financial rewards, accurate reviews constitute a public good and are likely to be under-provided\citep{avery1999market,miller2005eliciting}.Second, how to alleviate rants and raves on social media platforms? Generally, people are more likely to write reviews when their opinions are extreme\citep{hu2006}. Since no one gets paid, people just express their thoughts freely, ending up with so many extreme and emotional contents on the social media.
+
+This paper studies how badges as one kind of non-pecuniary incentive that provided by social  
+media platforms may affect the generation of  reviews. In order to help consumers find relevant,accurate and credible information,online platforms usually use star ratings(Amazon reviews) and achievement badges(Yelp Elite Reviewer) to certify the quality of a reviewer.Star ratings and achievement badges not only confer a judgment about the credibility of a reviewer, but also indicate this standing in relation to others.They thus introduce a pecking order among users\citep{dellarocas2010}.
+
+I obtain data from Yelp.com to empirically study how users' review behaviors change as they receive the badges and become more influential in the online community.Yelp uses the Elite badge to recognize people who are active in the Yelp community.The Yelp Elite Squad is a yearly program, so badges this year are only determined by users' performance in past year and only extend until the end of the calendar year. Yelp.com is uniquely ideal for the purpose of my study because of the availability of details on online reviews, the elite revieIr program and the time stamp for each review in the dataset. These features allow me to construct a longitudinal data set that indicates how the user review behavior changes as she receives the elite badge.Constructing a panel data model, I estimate the impact of the elite badge on users' contribution of reviews.I find that the elite badges encourages the user to increase her reviews generation by 56\%.This effect remains statistically significant when I control reviewers' past review performances. 
+
+In addition to the features of the numeric ratings, I are also interested in how the elite badge affects the linguistic features of reviews since readers  look  at not only the numerical ratings but also the textual content of the reviews. Two of the most important texture features are the objectivity and the readability.I use the portion of emotional words in the review to measure the lexical objectivity with the assumption that more objective reviewers should use fewer emotional words, such as annoying(negative) or adorable(positive).To measure the readability, I use the Gunning-Fog index which is inversely proportional to the number of difficult words in the review, such as meritorious with three or more syllables.The regression results show that if the user bears elite badge, she will use 3.1\% fewer negative words and 0.6\% fewer positive words.Although the effect is not large, it is statistically significant.More impressively, the user will decrease the Gunning-Fog index by 8.5\% to make her reviews more readable.These results suggest that users who receive the elite badges tend to become more objective and readable in their reviews.
+
+A plausible explanation for this impact is that people may contribute to the provision of a public good due to concerns of social image.\cite{benabou2006incentives} introduce a model where an agent acts to signal her preference for intrinsic and extrinsic motivations. In this model, the pro-social actions, indeed, reflect a variable mix of intrinsic motives,material self-interest, and social or self-image concerns.\cite{andreoni2004public} study repeated public goods games without effort where either subjects' pictures or contribution amounts or both are revealed to the other contributors. They find that being identifiable increases contributions.In light of these theoretical model and experiment results, I argue that users may be motivated to generate more reviews and increase the quality of reviews because they care about their social image in the community.If the elite badge can elevate their status and enlarge their influences on the platforms, they are likely to behave as a truly authority by writing more high quality reviews when they receive the elite badge.To explore this underlying mechanism, I use the number of votes the user receives from other users as a measurement of her impact in the community. my regression result shows that the elite badge can help the user increase her votes by 19.7\% after controlling the characteristics of the reviews, which suggests that people gives more trust and attention to the elite users when they read and compare reviews. 
+
+My study is related to but strikingly different from existing studies on social influence as well as existing studies on the antecedents to online word-of-mouth.Existing research in this area can be largely classified into two categories.One examines the generation of product reviews as an individual consumer decision or a reflection of consumer characteristics.For instance, consumers are more likely to post reviews when they are very happy or very unhappy with a product, which results in the bimodal distribution of online ratings\citep{hu2006}.A second category of studies focuses on how expressed product opinions may affect other opinions-for instance,how earlier ratings influence late ratings.\cite{chen2010social} show that in an online community, once users know the median number of reviews contributed by other community members, those who used to write less than the median will write more.However,we still know little about the generation of product ratings in the first place.My paper can potentially fill a remaining gap in this burgeoning literature by studying the effect of badges on a user's product review behavior in terms of \emph{how much} they produce(volume of reviews) and \emph{what} they produce(text feature of reviews), indicating a new driver of online content generation that has not been identified to date in the literature. 
+
+
+
+\section{Related Literature and  Hypotheses}
+\label{Related}
+
+\subsection{Related Literature}
+I draw on several important and growing streams of research in the literature:\emph{social influence,online word-of-mouth,} and \emph {online communities}.my objective is not to be exhaustive in including all papers written in these areas but to highlight those that directly inform my analyses and to discuss the gap in the existing literature that I seek to fill.
+
+Existing empirical studies of social influence have largely focused on behavioral similarities,i.e,the behavior of one person influencing another that they are connected to. For example, many researchers study how peer behavior influences the adoption of products and services\citep{aral2009distinguishing,lorenz2011social}.In the social media context, \cite{susarla2012social} show that social influence affects how popular YouTube videos can become. An arguably special case of social influence is "opinion leader". where some members of the population may exert a disproportionally high level of influence on others' product choices.my study can potentially fill a remaining gap in this burgeoning literature. Social psychologists argue that the mere presence of observers can change behaviors, in what is referred to as the Hawthorne Effect\citep{adair1984hawthorne}.Similarly in online social media,the badges can help the user earn a large portion of audience.Move importantly, these badges indicate a degree of trust and certification in the writers because they allow the writers to easily "push" their writings to the folloIrs .Given the presence and trust of such an audience, it seems natural that the review writers' behaviors may be affected. For product reviews, the badges may affect the writer's decision on whether to write, how much to write, what to write,and how to write it.
+
+The other stream of literature that I draw in is online word-of-mouth.Many studies have examined how online word-of-mouth, especially in the form of online product reviews and ratings, influences a wide range of outcomes such as consumer choices, product sales, and even investor decisions\citep{aggarwal2012putting,dellarocas2003digitization,duan2008online,sun2012does,zhang2011group}.As I mentioned earlier, we still know little about the generation of product ratings in the first place.Existing research in this area can be largely classified into two categories.One examines the generation of product reviews as an individual consumer decision or a reflection of consumer characteristics.For instance, consumers are more likely to post reviews when they are very happy or very unhappy with a product, which results in the bimodal distribution of online ratings\citep{hu2006}.Earlier consumers of a product tend to be more zealous about it , so over time ,average ratings tend to decrease\citep{hu2006}.Many studties alos find that product characteristics such as price\citep{li2008self}, popularity\cite{zhang2011group} and market position(such as niche versus hit products;\citet{dellarocas2010consumers}) all influence the generation of reviews. A common theme in this literature is that the decision to contribute reviews is a result of consumer characteristics or product characteristics that led to varying consumer experience.
+
+A second category of studies focuses on how expressed product opinions may affect other opinions-for instance,how earlier ratings influence late ratings. \citep{moe2011value} show this effect using data from a retailer's online sales.\citep{chen2010social} show that in an online community, once users know the median number of reviews contributed by other community members, those who used to write less than the median will write more. My study takes a new perspective on the generation of product reviews. I study the effect of badges on a user's product review behavior in terms of \emph{how much} they produce(volume of reviews) and \emph{what} they produce(text feature of reviews).If such effect exists ,it indicates a new driver of online content generation that has not been identified to date in the literature. 
+
+More broadly, I also draw on a growing literature on online communities\citep{butler2012cross,faraj2011network}.Restaurant review sites can be considered a special case of online communities,many studies in the online communities literature focus on the incentive of users to voluntarily contribute efforts where there is monetary return, which directly informs my hypothesis regrading the frequency of writing product reviews. In particular,\cite{wasko2005should} find that reputation-seeking motivations and structural embeddedness are two important motivations for users to contribute.Both of them exist only in social context,as one member relates to another of the same community. Hence, even though the empirical context in these studies may differ from Yelp.com, the motivation to seek recognition from others is still likely to play a role. On Yelp.com, the elite badge is an important indicator for reputation and embeddedness and should therefore affect the behavior of the review writers.
+
+To sum up, my study is related to but strikingly different from existing studies on social influence as well as existing studies on the antecedents to online word-of-mouth.To my knowledge,this is one of the first to examine how users' status on the user-generated review sites, may affect the behavior of how users express their opinions online.
+
+
+\subsection{Hypotheses Development}
+I now develop the main hypotheses that I will test in this paper.Whereas existing studies examine word-of-mouth from the perspective of products, I examine it from the perspective of review \emph{writers} who generate them. Specifically, I study how elite badge effect the(1) volume, or the number of reviews.(2)textual features such as readability and objectivity (3)votes that represent the user's influence in the community.   
+
+The first metric of interest is the volume of reviews. It is natural to expect that elite users should be more likely to contribute more reviews. Research has shown that the act of sharing one’s experience with others is largely a public good because of its positive externality \citep{bolton2004effective,chen2010social}: The cost to write is solely borne by the writer, yet readers can read the work without paying the writer. On the other hand, the elite badge suggests that the online community finds the writer’s review to be worthy of reading and trusts that the writer will continue to provide useful information in the future. Given the same degree of externality, the reputation and recognition help internalize some incentive to write. Therefore, receiving elite badge should encmyage the writer to contribute more reviews. This is also consistent with findings of prior research related to the effect of group size on public goods contribution \citep{zhang2011group}. 
+
+\textbf{Hypothesis 1} (\textbf{H1}). \emph{The elite badge should increase the number of reviews that a user contributes to the community}
+
+In addition to some characterizations of the numeric ratings, I am also interested in how the elite badge affects the linguistic features of reviews since readers of reviews look not only at the numerical ratings but also at the textual content of the reviews. To quantify reviews, a natural metric that  is the degree of objectivity and I hypothesize that as users become more popular, they are likely to use fewer emotional words in their writings, Two different streams of literature inform this hypothesize. The first is the Functional Role Theory of sociology \citep{biddle1986recent}.Users who receive the elite badges are de facto expert figures in the community. As experts in an online review community, their role is to provide useful and objective information for readers rather than indulge in emotional rhetoric. According to the functional role theory, these users will recognize such expectations and act accordingly. All else being equal, objective writing is more likely to carry a sense of expertise than emotional rants, so I expect these writers to use less emotional words as they become popular. The second is the social networks literature in sociology and management. To a large degree, the elite badge determines the network position of a user on the online community. Sociology and management studies suggest that through a social influence process within a network\citep{marsden1993network}, users on similar network positions will have ''similar'' role demands, and similar expectations from others\citep{ibarra1993power}.In other words, such expectations and demands from other members can motivate them to write in a manner consistent with ''expert'' status. I therefore hypothesize the following:
+
+\textbf{Hypothesis 2} (\textbf{H2}). \emph{The elite badge should encourage the user to increase her writings' readability and objectivity}.
+
+
+The first two hypothesis is largely based on the assumption that users who are motivated by the achievement badge really care about their impact on other reviewer.Theoretically, people may contribute to the provision of a public good due to intrinsic incentive or social image\citep{benabou2006incentives}.While some may write reviews out of inner passions for writing, others may be intrigued by the higher status and more exposure to the mass that elite badges bring about.Once the user becomes the ''expert'' in the community, her reviews will be more likely to be seen by other reviewers as many social media platforms provide filter options that give elite users high priority in review displays.What's more, if elite certification gives reviewer a reputation for leaving informative reviews, then readers will be more likely trust and endorse elite user's reviews by giving them more votes.Thus I could expect that reviewers should have larger impact when they become elite users.
+
+
+\textbf{Hypothesis 3} (\textbf{H3}). \emph{The elite badge should help the user earn more votes of her reviews}.
+
+\section{Data}
+\label{Related}
+
+\subsection{Yelp.com}
+My empirical setting is the consumer review website Yelp.com. Yelp began in 2004, and contains reviews for a variety of services ranging from restaurants to barbers to dentists, among many others.Most Yelp reviews are for restaurants,however.In order to write a review, a user must obtain a free account with Yelp, which requires registering a valid email address. The users can then rate any restaurant (from 1-5 stars), and enter a text review. Once a review is written, anyone (with or without an account) can access the website for free and read the review. Readers will come across reviews within the context of a restaurant search, where the reader is trying to learn about the quality of different restaurants. They can also give votes for their favorable reviews.
+
+Yelp uses the Elite badge to recognize people who are active in the Yelp community and role models on the site. Elite-worthiness is based on a number of things, including well-written reviews, high quality tips, a detailed personal profile, an active voting and complimenting record, and a history of playing well with others. Members of the Elite Squad are designated by a colorful Elite badge on their account profile. After being Elite for 5 years, they'll receive the Gold Elite Badge, and after 10 years they'll receive the coveted Black Elite Badge. The Yelp Elite Squad is a yearly program, so badges will only extend until the end of the calendar year. Towards the end of the year, members will receive a note from their Community Manager to re-nominate themselves so that they can start the next year with a shiny new Elite badge. Figure \ref{user2} provides a snapshot of a typical Yelp elite user’s profile. 
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.75]{user.png}
+  \caption{Yelp Elite User Profile}
+  \label{user2}
+\end{center}
+\end{figure}
+
+
+\subsection{Dataset}
+
+I use the dataset provided by Yelp as part of their Dataset Challenge 2015 to examine the three hypotheses. Yelp.com is uniquely ideal for the purpose of my study because of the availability of details on online reviews, the elite revieIr program and the time stamp for each review. These features allow us to construct a longitudinal data set that indicates how the user review behavior changes as she receives the elite badge.
+
+\subsubsection{Description of the Data}
+
+The dataset includes data from 10 cities across 4 countries and contains information about 1,600,000 reviews by 366,000 users for 61,000 businesses over the period 2004-2015.Table 1 provides summary statistics for these users. The Consumers on average have generated 32.22 ratings since their registration, with each of these revieIrs having 7 friends and 1.5 fans.  Since a common user approximately write less than 3 reviews each year, reviews constitute a public good and are under-provided.The mean rating is 3.71 stars out of 5, which suggests most of ratings are 4 or 5 stars, indicting a possible positive rating inflation that is often found on other social media platform such as Airbnb\citep{reportingandreciprocity},Ebay\citep{cabral2015dollar}. Also we should note that the number of reviews ranges widely from zero to nearly nine thousand for 10 years.In another word, there are not only enthusiastic writers but also free riders in the online community.
+
+\begin{table}[htbp] \centering 
+\label{table1}
+	\renewcommand\thetable{1}
+  \caption{Summary Statistics of User information(Cross-Sectional, per User)  \label{PrePoIr} } 
+\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+  & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max} \\ 
+\hline \\[-1.8ex] 
+Number of Reviews & 366,715 & 32.22 & 94.837 & 0 & 8,843 \\ 
+Average Stars & 366,715 & 3.719 & 1.030 & 0 & 5 \\ 
+Number of Votes & 366,715 & 122.2 & 1032.670 & 0 & 100,319 \\ 
+Number of Friends & 366,715 & 7.025 & 39.902 & 0 & 3,830 \\ 
+Number of Fans & 366,715 & 1.575 & 11.590 & 0 & 1,298 \\ 
+Number of Years on the Site & 366,715 & 4.713 & 1.965 & 0 & 12 \\ 
+\hline \\[-1.8ex] 
+\end{tabular} 
+
+\end{table}
+
+According to my hypothesis, one way to identify these two types of users is to see whether they have received any elite badges in the last 10 years.I refer to those who never get any elite badges as common users and those who get at least one elite badge as elite users.Table 2 shows that elite users contribute disproportionately more reviews to the community.They on average generate 245 reviews compared with less than 17 reviews provided by common users.They also earn more votes, make more friends and get more fans than their counterpart.
+
+\begin{table}[htbp] \centering 
+	\renewcommand\thetable{2}
+  \caption{Summary Statistics of Different Types of Users  \label{PrePoIr} } 
+\begin{tabular}{@{\extracolsep{5pt}}lccccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+  & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Reviews} & \multicolumn{1}{c}{Votes} & \multicolumn{1}{c}{Stars} & \multicolumn{1}{c}{Fans} & \multicolumn{1}{c}{Friends} & \multicolumn{1}{c}{Tenure} \\
+\hline \\[-1.8ex] 
+Elite user & 25,301 & 245 & 1,336 & 3.78 & 16.38 & 55.87 & 6.741 \\ 
+Common user & 341,414 & 16.44 & 32.26 & 3.71 & 0.478 & 3.405 & 4.563 \\ 
+\hline \\[-1.8ex] 
+\end{tabular}
+
+\end{table}
+
+\subsubsection{Text Feature Analysis}
+Text are not only important complements to the valence of numeric ratings, they are also more granular and will also reflect the objectivity of reviews.I assume that the more objective a user is, the fewer emotional words she will use.For example, both annoying and adorable are emotional words as they either represent strong negative or positive feelings while clean is a neutral word.Thus I use the percentage of number of emotional words to measure the lexical emotionality of a review.
+
+\begin{equation}
+\text{Lexical emotionality} = (\frac{\text{Number of Emotional Words}}{\text{Number of Words}})\times 100
+\end{equation}
+
+To quantify the extent of emotional words usage in the texts (the opposite objectivity), I use the Linguistic Inquiry and Word Count package (LIWC; \citep{francis1993linguistic}), which has been extensively used in published studies in management and other fields\citep{berger2012makes,bednar2012watchdog,brett2007sticks}.
+
+As for  the readability of a review, I assume that the more readable a user is, the fewer hard words she will use.Hard words are those with three or more syllables.If the writer would like to make her reviews more readable, she will use more easy words such as \emph{good} which has only 1 syllable and fewer difficult words such as \emph{meritorious} which has 5 syllables.In linguistics, a typical measurement of the readability for English writing is the Gunning fog index. The formula is as follows:
+\begin{equation}
+\text{Gunning-Fog index} =0.4 \times(\frac{\text{Number of Words}}{\text{Number of Sentences}}+\frac{\text{Number of Hard Words}}{\text{Number of Words}})\times 100
+\end{equation}
+
+The index estimates the years of formal education a person needs to understand the text on the first reading. A fog index of 12 requires the reading level of a U.S. high school senior (around 18 years old).Thus large Gunning-Fog index suggests people are difficult to understand your reviews.  
+
+I use metrics to measure the objectivity and readability of reviews written by elite users and common users. Table 3 shows that elite user generally have tend to use fewer emotional words and smaller Gunning-Fox index which means their writings are more readable and easier to understand.
+
+\begin{table}[htbp] \centering 
+	\renewcommand\thetable{3}
+  \caption{Summary Statistic of Text Feasures \label{PrePoIr} } 
+\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+  & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Negative Words} & \multicolumn{1}{c}{Positive Words} & \multicolumn{1}{c}{Review Length} & \multicolumn{1}{c}{Gunning-Fog Index} \\ 
+\hline \\[-1.8ex] 
+Elite user & 25,301 & 0.019 & 0.059 & 170.461 & 11.23 \\ 
+Common user & 341,414 & 0.020 & 0.072 & 110.736 & 17.45 \\ 
+\hline \\[-1.8ex] 
+\end{tabular} 
+
+\end{table}
+
+\section{Model and Results}
+\label{results}
+I am interested in how users change behaviors when they acquire elite badges in the online community. Hence, my main dependent variables include (1) number of reviews provided by the user (2) the lexical emotionality and Gunning-Fog index of her review text.(3) the number of votes the user receives.my main independent variable of interest is whether the user is the elite user or not.
+
+
+
+\subsection{Rationale for Modeling Strategies}
+I am interested in how users change behaviors when they acquire elite badges in the online community. Hence, my main dependent variables include (1) number of ratings provided by the user (2) the number of votes the user receives and (3) the average proportion of emotional (positive or negative) words in her review text. my main independent variable of interest is whether the user is an elite user or not. 
+
+A cross-sectional analysis of the data could yield erroneous findings because it does not account for potential endogeneity. For instance, although I am interested in understanding how the elite badge affects user behavior in writing reviews, it may be because of the user’s unobservable characteristics (the strong motivation, the instinct sense of humor) that pushed her to write more reviews or earned the compliment of other users. Also, it is true that users receive elite badges because they write more reviews, are more objective and readable,and earn more votes from other reviewer.
+
+I therefore turn to panel data models. I include individual fixed-effects to control user's unobservable characteristics that do not change over time. Since the elite badge in this year is only determined by the user's last year performance, I can get rid of the potential reverse causality problem when I calculate my dependent variables in the panel data model by aggregating all reviews a user writes in a given calender year and independent variable of interest is whether the user receives the elite badge or not in that same year. More importantly, I have variations of this independent variable since Yelp assign the elite badges to new users and review the elite status of old users every year.  
+
+
+\subsection{Panel Data Model}
+I construct a panel data set such that each unit of observation is a member and each time period is one calendar year. The data set therefore contains yearly observations about each user, including the type of the user in that year, his or her activities such as number of reviews written in that month, the mean and variance of these ratings, and so on. To reduce skewness of data, I take natural logarithms of all count data before including them in the estimation.These include the number of reviews, and the number of votes.By doing so, I restrict my attention to those observations with positive values.
+Furthermore, if may not be meaningful to calculate the average proportion of emotional words when there is only one rating in that year. As a result, I also examine the robustness of results using different minimum number if reviews to calculate mean and standard error. More formally, the models that I estimate are as follows:
+
+\begin{equation}
+\begin{split}
+Reviews_{it}=&\beta_0^1+\beta_1^1\text{Elite}_{it}+\beta_2^1\text{Tenure}_{it}+\beta_3^1\text{Tenure}_{it}^2+\beta_4^1\text{NurBadegs}_{it}+\beta_5^1\text{PastReviews}_{it}\\&+\beta_6^1\text{PastVotes}_{it}+\theta_{i}^1+\epsilon_{it}^1
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+EmoWords_{it}|GF\_Index_{it}=&\beta_0^2+\beta_1^2\text{Elite}_{it}+\beta_2^2\text{Tenure}_{it}^2+\beta_3^2\text{Tenure}_{it}^2+\beta_4^2\text{Ratings}_{it}\\&+\beta_5^2\text{Votes}_{it}+\theta_{i}^2+\epsilon_{it}^2
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+Votes_{it}=&\beta_0^3+\beta_1^3\text{Elite}_{it}+\beta_2^3\text{Tenure}_{it}+\beta_3^3\text{Tenure}_{it}^2+\beta_4^3\text{Ratings}_{it}+\beta_5^3\text{EmoWords}_{it}\\&+\beta_6^3\text{GF\_Index}_{it}+\theta_{i}^3+\epsilon_{it}^3
+\end{split}
+\end{equation}
+
+The left-hand side refers to the dependent variables that I described earlier, are number of reviews written in each year, the average proportion of emotional words and Gunning-Fog index in the user's review text and the average number of votes earned.$k_{1}$. Elite indicates whether the user receives the elite badge in that year, tenure refers to the number of years that the user had been on the site.I also include the square of tenure to control for possible nonlinear effects.The rest are the control variables. \emph{PastReviews, PastVotes} refer to the average number of reviews and votes the user had  received before year $t$. \emph{Ratings} refers to the mean of the ratings generated. $\theta_{i}$ are individual fixed effects, $\epsilon_{it}$ and are the error terms.
+
+
+\subsection{Discussion of results}
+Table 4 through 6 report the results of various panel data specifications for the three outcomes of interest. It should be noted that different columns may contain estimates from different empirical models and dependent variables.
+
+\textbf{Number of Reviews}.Table 4 shows the impact of the elite badge on the number of reviews.The baseline specification is in column (1).The estimated impact of \emph{$EliteBadge_{it}$} on \emph{log $Reviews_{it}$} is 0.565, which suggests that elite badges can encourage the user to increase her reviews generation by 56\%. Column (2) add a control variable indicting how much elite badges the user has already received.The coefficient is negative and statistically significant, thus the marginal effect of elite badges should be decreasing.In column(3), I include two controls for user's past review performances: average number of reviews and average number of notes.The estimated effect becomes stronger and remain significant. The results from the panel data model lend support to H1 that there is indeed a robust encouragement effect when the writer receives the elite badge. Column (4) reports the results from a fixed-effect logit model, where the binary dependent variable is whether the user provided any rating in that year. The results confirm that the elite badge is associated with a higher probability of providing ratings and also a higher number of ratings.
+
+\begin{table*}[htbp]\centering
+\ra{1.3}
+\renewcommand\thetable{4}
+  \caption{Panel Data Model of Number of Reviews  \label{PrePoIr} } 
+\begin{tabular}{@{}cccccc@{}}
+
+\toprule[1.5pt]
+Dependent variable & \multicolumn{3}{c}{log(NbrReviews)} & \phantom{abc}& \multicolumn{1}{c}{1(NbrReviws$>$0)} \\ 
+\cmidrule{2-4} \cmidrule{6-6} 
+& (1) & (2) & (3) && (4)  \\ \midrule
+$Elite$ & 0.565*** & 0.570*** & 0.612*** && 0.315***  \\
+	 & [0.011]& [0.011]& [0.011]&& [0.003]\\
+$Tenure$ &0.006 & 0.008& 0.013**&& 0.017***\\
+	 & [0.004]& [0.004]& [0.005]&& [0.001]\\
+$Tenure^2$ & -0.008***& -0.002**&-0.004*** && -0.001***\\
+	 & [0.001]& [0.001]& [0.001]&& [0.000]\\
+$NbrEliteBages$ & &-0.148*** &-0.130*** &&-0.048 \\
+	& &[0.005] & [0.005] && [0.001]\\
+$AveVotes$ & & & 0.004*** &&0.003***\\
+	&　& &[0.000] &&[0.000]\\
+$AveReviews$ & & & 0.016*** &&0.005***\\
+	&　& &[0.001] &&[0.000]\\
+$R^2$ &0.026 &0.033 &0.038 &&0.014\\
+$Observations$ &490,215 &490,215 &490,215 &&1,353,090\\
+\bottomrule
+\end{tabular}
+
+\end{table*}
+
+\textbf{Text Feature of Reviews}. Table 5 reports the results of fixed-effect model for text features of reviews provided by each user in each year.Independent variables are log-transformed. Four columns report results on different outcome variables: Column (1)-(3) are three measurement of text objectivity-the portion of emotional words, negative words and positive words, column (4) is Gunning-Fog index which measures text readability. I add the mean of ratings to control the quality of the restaurants and the average votes the user receives to control her popularity. The results show that if the user bears elite badge, she will use 3.1\% fewer negative words and 0.6\% fewer positive words.Although the effect is not large, it is statistically significant.More impressively, the user will decrease the Gunning-Fog index by 8.5\% to make her reviews more readable.These results suggest that users who receive the elite badges tend to become more objective and readable in their reviews; they increasingly sound like an authority in their writings, confirming my hypothesis 2.  
+
+\begin{table*}[htbp]\centering
+\ra{1.3}
+\renewcommand\thetable{5}
+  \caption{Results for Text Features  \label{PrePoIr} } 
+\begin{tabular}{@{}cccccc@{}}
+
+\toprule[1.5pt]
+Dependent variable & \multicolumn{3}{c}{Objectivity} & \phantom{abc}& \multicolumn{1}{c}{Readability} \\ 
+\cmidrule{2-4} \cmidrule{6-6} 
+& Emotional Words & Negative Words & Positive Words && Gunning-Fog index  \\ \midrule
+$Elite$ & -0.012*** & -0.031*** & -0.006* && -0.085***  \\
+	 & [0.005]& [0.008]& [0.005]&& [0.008]\\
+$Tenure$ &-0.015*** & 0.006& -0.027**&& 0.054***\\
+	 & [0.002]& [0.004]& [0.002]&& [0.004]\\
+$Tenure^2$ & -0.001***& -0.000 &-0.002*** && -0.006***\\
+	 & [0.000]& [0.001]& [0.000]&& [0.001]\\
+$Mean of Ratings$ &0.091*** &-0.188*** & 0.232*** &&-0.120*** \\
+	&[0.002] &[0.003] & [0.002] && [0.003]\\
+$Votes$ &-0.003*** &0.003*** & -0.006*** &&0.028***\\
+	&[0.000]　&[0.001] &[0.000] &&[0.001]\\
+$R^2$ &0.058 &0.089 &0.224 &&0.069\\
+$Observations$ &215,538 &165,117 &214,297 &&216,548\\
+\bottomrule
+\end{tabular}
+
+\end{table*}
+
+
+\textbf{Number of Votes}. Table 4 shows the impact of the elite badge on the number of votes the user receives.The baseline specification is in column (1).The estimated impact of \emph{$EliteBadge_{it}$} on \emph{log $Votes_{it}$} is 0.197, which suggests that the elite badge can help the user increase her votes by 19.7\%. In column (2) to (3), I gradually add controls for the characteristics of the reviews:mean of ratings,Gunning-fog index and the proportion of emotional words.The coefficient remains positive and statistically significant, suggesting that people gives more trust and attention to the elite users when they read and compare reviews.Column (4) reports the results from a fixed-effect logit model, where the binary dependent variable is whether the user earned any vote in that year. The results confirm that the elite badge is associated with a higher probability of winning votes, thus making the user more influential and popular in the online community. Since people may contribute to the public good out of the concern of social image, these results justify that the elite badge literally has a effect on the user's generation of reviews.
+
+\begin{table*}[htbp]\centering
+\ra{1.3}
+\renewcommand\thetable{6}
+  \caption{Panel Data Model of Number of Votes  \label{PrePoIr} } 
+\begin{tabular}{@{}ccccccc@{}}
+
+\toprule[1.5pt]
+Dependent variable & \multicolumn{4}{c}{log(NbrVotes)} & \phantom{abc}& \multicolumn{1}{c}{1(NbrVotes$>$0)} \\ 
+\cmidrule{2-5} \cmidrule{7-7} 
+& (1) & (2) & (3) & (4)&& (5)  \\ \midrule
+$Elite$ & 0.197*** & 0.198*** & 0.168*** & 0.171*** && 0.096***  \\
+	 & [0.013]& [0.012]& [0.012] &[0.012] && [0.008]\\
+$Tenure$ &0.035*** & 0.038***& 0.019** & 0.018** && 0.004***\\
+	 & [0.007]& [0.007]& [0.007] & [0.007] && [0.004]\\
+$Tenure^2$ & -0.004***& -0.003**&-0.002 & -0.002 && -0.002***\\
+	 & [0.001]& [0.001]& [0.001] & [0.001]&& [0.000]\\
+$Mean of Ratings$ & &-0.042*** &-0.010 & -0.018*** &&-0.026*** \\
+	& &[0.005] & [0.005] &[0.007] && [0.003]\\
+$Guning-Fog Index$ & & & 0.321*** &0.208*** &&0.174***\\
+	&　& &[0.008] &[0.013] &&[0.004]\\
+$Emotional Words$ & & & & -0.739*** &&0.046\\
+	&　& & &[0.001] &&[0.094]\\
+$R^2$ &0.012 &0.015 &0.029 &0.066 &&0.042\\
+$Observations$ &105,975 &105,975 &105,975 &105,975 &&216,548\\
+\bottomrule
+\end{tabular}
+
+\end{table*}
+
+\section{Conclusion}
+\label{conclusion}
+
+The paper examines how the elite badge impact the user's review behavior on the social media platform. I show that the elite badge as a kind of non-pecuniary incentive encourages the user not only to contribute more reviews but also to increase her writings' objectivity and readability. 
+
+Since the contents on the social media platforms are all generated by the common users who generally do not receive any financial rewards, high quality contents such as objective and readable reviews constitute a public good and may be under-provided. My paper suggests that the achievement badge may effectively motivate users to engage in the generation of high quality contents on the online platforms.As a matter of fact, many websites have already adopted the similar mechanisms such as Yelp, Stack Overflow, and Amazon.
+
+My study can be extended in several directions for future research.First,there remains some data limitations despite my best efforts.Since the social media platforms allow users to subscribe or follow each other, the number of fans and friends a user has is a better measurement of her popularity than the number of votes she earns. Unfortunately,my data set only documents the total number of friends or fans a user had at the end of August,2015.Consequently,I can't know how this variable changes from year to year.Though the number of votes is a decent alternative choice of the proxy of user's popularity, it would allow us to conduct more robust specifications if I can recover the growing trend of a user's social network.Second, the text analysis in this paper is quite rough and rudimentary.Better methods may be applied to the text analysis to dig out more detail about reviewer's emotion and writings' readability.For example, I can hire people to evaluate typical reviews and generate more accurate metrics of emotionality and readability based on their evaluations.
+
+Despite these limitations, my study provides new empirical evidence on the effect of non-pecuniary incentive on users' contributing behavior on social media platforms. It also contribute to the literature by utilizing social image concern in explaining motivation and contribution in product reviews.Although the ''public good'' problem of user contribution is less salient in some of contexts since users are able to internalize more of their efforts, how non-pecuniary incentive induce their efforts can be a rich area for future research.
+  
+
+
+\singlespacing
+
+
+
+
+
+\bibliography{bibb}
+
+
+
+\end{document}
